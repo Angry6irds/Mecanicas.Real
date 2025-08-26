@@ -28,7 +28,7 @@ public class Sarten : MonoBehaviour
             float T = flyingTime;
             Vector3 hitVelocty = (Pf - P0) / T - 0.5f * g * T;
             Vector3 randomTorque = 100f * Random.onUnitSphere;
-            other.GetComponent<Rigidbody>().velocity = hitVelocty;
+            other.GetComponent<Rigidbody>().linearVelocity = hitVelocty;
             other.GetComponent<Rigidbody>().AddTorque(randomTorque, ForceMode.Impulse);
         }
     }
