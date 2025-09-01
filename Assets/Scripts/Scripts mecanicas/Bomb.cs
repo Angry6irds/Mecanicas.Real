@@ -64,26 +64,11 @@ public class Bomb : MonoBehaviour
         col.enabled = true;
     }
 
-    // ---- DEFLECT (Parry con sartén) opcional ----
-    public void Deflect(Vector3 normal, float multiplier = 1.1f)
-    {
-        rb.velocity = Vector3.Reflect(rb.linearelocity, normal) * multiplier;
-        // pequeño spin para el drama
-        rb.angularVelocity = UnityEngine.Random.insideUnitSphere * 7f;
-    }
+   
 
     void OnCollisionEnter(Collision c)
     {
         if (exploded) return;
-
-        // Parry con sartén (si existe y está activo)
-        var pan = c.collider.GetComponentInParent<PanParry>();
-        if (pan && pan.IsActive)
-        {
-            Deflect(c.GetContact(0).normal, pan.deflectMultiplier);
-            pan.PlayClank();
-            return;
-        }
 
         if (c.collider.CompareTag("Ground"))
         {

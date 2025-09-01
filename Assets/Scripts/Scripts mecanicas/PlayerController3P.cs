@@ -63,7 +63,7 @@ public class PlayerController3P : MonoBehaviour
         if (!IsAlive) return;
 
         Vector3 vel = moveWorld * moveSpeed;
-        rb.velocity = new Vector3(vel.x, rb.velocity.y, vel.z);
+        rb.linearVelocity = new Vector3(vel.x, rb.linearVelocity.y, vel.z);
 
         if (vel.sqrMagnitude > 0.01f)
         {
@@ -85,7 +85,7 @@ public class PlayerController3P : MonoBehaviour
         idx = (idx + dir + vivos.Count) % vivos.Count;
         var nuevo = vivos[idx];
         targetIndex = rivals.IndexOf(nuevo);
-        // aquí puedes encender un indicador visual sobre 'nuevo'
+        // aquï¿½ puedes encender un indicador visual sobre 'nuevo'
     }
 
     public void TryThrow()

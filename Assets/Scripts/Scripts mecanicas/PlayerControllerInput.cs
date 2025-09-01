@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerControllerInput : MonoBehaviour
 {
     private PlayerController3P controller;
-    private PanParry panParry; // opcional
+    
 
     void Awake()
     {
         controller = GetComponent<PlayerController3P>();
-        panParry = GetComponentInChildren<PanParry>();
+        
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -36,6 +36,6 @@ public class PlayerControllerInput : MonoBehaviour
     // Solo si usarás parry con sartén
     public void OnParry(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && panParry) panParry.ActivateWindow();
+
     }
 }
