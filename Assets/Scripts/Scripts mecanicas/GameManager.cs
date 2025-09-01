@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Setup()
     {
-        players = FindObjectsByType<PlayerController3P>().ToList();
+        players = FindObjectsByType<PlayerController3P>(FindObjectsSortMode).ToList();
 
         // ubicar y tintar
         for (int i = 0; i < players.Count; i++)
